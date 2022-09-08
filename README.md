@@ -1,8 +1,8 @@
-## LEMP Box
+## PHP Footgun
 
 This Sandstorm app is sort of a crime, it does not work out of the box! It is designed to let you import old PHP apps into a Sandstorm sandbox without actually packaging them properly as apps.
 
-### How to use LEMP Box
+### How to use PHP Footgun
 
 * Create a grain and download the backup.
 * Copy the directory of the web application to the /data/www folder inside the zip file.

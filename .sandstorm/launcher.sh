@@ -31,7 +31,7 @@ mkdir -p /var/run/mysqld
 if [ ! -e /var/www/index.php ]; then
     echo "staging www folder"
     mkdir -p /var/www
-	echo "Hello world" > /var/www/index.php
+	cp /opt/app/index.php /var/www/index.php
 fi
 if [ ! -e /var/sql ]; then
     echo "staging sql import folder"
@@ -50,10 +50,11 @@ HOME=/etc/mysql /usr/sbin/mysqld --skip-grant-tables &
 # Wait until mysql and php have bound their sockets, indicating readiness
 wait_for mysql /var/run/mysqld/mysqld.sock
 
+mysql --user "root" -e "CREATE DATABASE IF NOT EXISTS app"
+
 # run SQL file if it exists
 if [ -e /var/sql/import.sql ]; then
     echo "importing sql"
-    mysql --user "root" -e "CREATE DATABASE app"
     mysql --user "root" --database "app" < /var/sql/import.sql
 	rm -f /var/sql/import.sql
 fi
