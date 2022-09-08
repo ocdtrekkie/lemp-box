@@ -4,6 +4,7 @@ This Sandstorm app is sort of a crime, it does not work out of the box! It is de
 
 ### How to use LEMP Box
 
-* Create a grain and download the backup
+* Create a grain and download the backup.
 * Copy the directory of the web application to the /data/www folder inside the zip file.
 * Copy the database backup as import.sql in the /data/sql folder inside the zip file. (Database name "app", user "root", password "root")
+* Restore the grain backup to your server and rename the grain title to be explanatory.
